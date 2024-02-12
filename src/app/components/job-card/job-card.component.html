@@ -1,6 +1,6 @@
 <main
   [ngClass]="{
-    'bg-white mt-12 mx-6 xl:mx-48 lg:mx-16 lg:mt-8  lg:flex relative pb-8 pt-12 lg:pt-8 lg:pb-2 px-4 lg:px-10 rounded-md shadow-xl': true,
+    'bg-white mt-12 mx-6 xl:mx-36 lg:mx-16 lg:mt-8  lg:flex relative pb-8 pt-12 lg:pt-8 lg:pb-2 px-4 lg:px-10 rounded-md shadow-xl': true,
     'border-l-[6px] border-l-text-cyan': job?.featured
   }"
 >
@@ -62,27 +62,20 @@
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
     >
-      Frontend
+      {{ job?.role }}
     </li>
+
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
     >
-      Senior
+      {{ job?.level }}
     </li>
+
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+      *ngFor="let language of job?.languages"
     >
-      HTML
-    </li>
-    <li
-      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
-    >
-      CSS
-    </li>
-    <li
-      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
-    >
-      Javascript
+      {{ language }}
     </li>
   </ul>
 </main>

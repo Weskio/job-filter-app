@@ -162,5 +162,9 @@ export class JobDataService {
     return this.jobData
   }
 
+  getLanguages(){
+    return this.jobData.filter((language) => language.languages )
+  }
+
   constructor() { }
 }
