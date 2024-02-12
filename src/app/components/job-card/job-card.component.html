@@ -3,47 +3,54 @@
 >
   <div class="details flex">
     <img
-      src="https://ang-job-filter.vercel.app/assets/images/photosnap.svg"
+      [src]=""
       alt=""
       class="absolute lg:static h-16 lg:h-[85px] lg:mr-6  -top-8"
     />
 
     <div class="main-details">
       <div class="title-feat flex flex-wrap gap-3">
-        <p class="font-bold text-text-cyan mr-8 lg:mr-0">Photosnap</p>
+        <p class="font-bold text-text-cyan mr-8 lg:mr-0">{{job?.company}}</p>
 
         <div class=" flex gap-2 -mt-1">
-          <div
-            class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
-          >
-            <p>NEW!</p>
-          </div>
 
-          <div
-            class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
-          >
-            <p>FEATURED</p>
-          </div>
+            @if(job?.new){
+                <div
+                class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
+              >
+                <p>NEW!</p>
+              </div>
+            }
+         
+            @if(job?.featured){
+                <div
+                class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
+              >
+                <p>FEATURED</p>
+              </div>
+            }
+
+          
         </div>
       </div>
       <p
         class="text-darkest-cyan mt-3 lg:mt-1 font-bold text-xl cursor-pointer hover:text-text-cyan"
       >
-        Senior Frontend Developer
+       {{job?.level}}
       </p>
       <ul class="flex mt-1.5 lg:mt-0 text-dark-cyan gap-8 text-lg font-[500] mb-5">
-        <li class="list-none">1d ago</li>
+        <li class="list-none">{{job?.postedAt}}</li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-          Full time
+          {{job?.contract}}
         </li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-          USA only
+        {{job?.location}}
         </li>
       </ul>
     </div>
