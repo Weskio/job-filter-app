@@ -1,43 +1,81 @@
-<main class="bg-white mt-12 mx-6 border-l-[6px] border-l-text-cyan relative pt-12 pb-8 px-4 rounded-md shadow-xl">
-    
-    <img src="https://ang-job-filter.vercel.app/assets/images/photosnap.svg" alt="" class="absolute h-16 -top-8">
+<main
+  class="bg-white mt-12 mx-6 lg:mx-36 border-l-[6px] lg:flex border-l-text-cyan relative pb-8 pt-12 lg:pt-10 lg:pb-4 px-4 lg:px-10 rounded-md shadow-xl"
+>
+  <div class="details flex">
+    <img
+      src="https://ang-job-filter.vercel.app/assets/images/photosnap.svg"
+      alt=""
+      class="absolute lg:static h-16 lg:h-[85px] lg:mr-6  -top-8"
+    />
 
-    <div class="title-feat flex flex-wrap gap-3">
-        <p class="font-bold text-text-cyan mr-8">Photosnap</p>
+    <div class="main-details">
+      <div class="title-feat flex flex-wrap gap-3">
+        <p class="font-bold text-text-cyan mr-8 lg:mr-0">Photosnap</p>
 
-        <div class="if flex gap-2 -mt-1">
-            <div class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full">
-                <p>NEW!</p>
-            </div>
-    
-            <div class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full">
-                <p>FEATURED</p>
-            </div>
-        </div> 
+        <div class=" flex gap-2 -mt-1">
+          <div
+            class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
+          >
+            <p>NEW!</p>
+          </div>
+
+          <div
+            class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
+          >
+            <p>FEATURED</p>
+          </div>
+        </div>
+      </div>
+      <p
+        class="text-darkest-cyan mt-3 lg:mt-1 font-bold text-xl cursor-pointer hover:text-text-cyan"
+      >
+        Senior Frontend Developer
+      </p>
+      <ul class="flex mt-1.5 lg:mt-0 text-dark-cyan gap-8 text-lg font-[500] mb-5">
+        <li class="list-none">1d ago</li>
+        <li class="relative">
+          <div
+            class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
+          ></div>
+          Full time
+        </li>
+        <li class="relative">
+          <div
+            class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
+          ></div>
+          USA only
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <p class="text-darkest-cyan mt-3 font-bold text-xl cursor-pointer hover:text-text-cyan">Senior Frontend Developer</p>
+  <div class="line lg:hidden bg-dark-cyan opacity-50 h-[2px]"></div>
 
-    <div class="mob-divide divide-y-2 divide-y-slate-500">
-        <ul class="flex mt-1.5 text-dark-cyan gap-8 text-lg font-[500] mb-5">
-            <li class="list-none">1d ago</li>
-            <li class="relative">
-                <div class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"></div>
-                Full time</li>
-            <li class="relative">
-                <div class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"></div>
-                USA only</li>
-        </ul>
-
-        <ul class="pt-5 flex flex-wrap gap-4">
-            <li class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer ">Frontend</li>
-            <li class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer">Senior</li>
-            <li class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer">HTML</li>
-            <li class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer">CSS</li>
-            <li class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer">Javascript</li>
-        </ul>
-    </div>
-
-   
-
+  <ul class="tags pt-5 flex flex-wrap gap-4 ml-auto lg:mt-auto lg:mb-[48px] ">
+    <li
+      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+    >
+      Frontend
+    </li>
+    <li
+      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+    >
+      Senior
+    </li>
+    <li
+      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+    >
+      HTML
+    </li>
+    <li
+      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+    >
+      CSS
+    </li>
+    <li
+      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+    >
+      Javascript
+    </li>
+  </ul>
 </main>
