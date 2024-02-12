@@ -11,6 +11,7 @@ import { Job } from '../../interface/interface';
     imports: [JobCardComponent]
 })
 export class AllJobsComponent {
+first: any;
 
     constructor(private job: JobDataService){}
 

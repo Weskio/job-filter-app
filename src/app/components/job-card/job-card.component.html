@@ -1,56 +1,56 @@
 <main
-  class="bg-white mt-12 mx-6 lg:mx-36 border-l-[6px] lg:flex border-l-text-cyan relative pb-8 pt-12 lg:pt-10 lg:pb-4 px-4 lg:px-10 rounded-md shadow-xl"
+  [ngClass]="{
+    'bg-white mt-12 mx-6 xl:mx-48 lg:mx-16 lg:mt-8  lg:flex relative pb-8 pt-12 lg:pt-8 lg:pb-2 px-4 lg:px-10 rounded-md shadow-xl': true,
+    'border-l-[6px] border-l-text-cyan': job?.featured
+  }"
 >
   <div class="details flex">
     <img
-      [src]=""
+      [src]="getImageUrl(job?.logo)"
       alt=""
-      class="absolute lg:static h-16 lg:h-[85px] lg:mr-6  -top-8"
+      class="absolute lg:static h-16 lg:h-[85px] lg:mr-6 -top-8"
     />
 
     <div class="main-details">
       <div class="title-feat flex flex-wrap gap-3">
-        <p class="font-bold text-text-cyan mr-8 lg:mr-0">{{job?.company}}</p>
+        <p class="font-bold text-text-cyan mr-8 lg:mr-0">{{ job?.company }}</p>
 
-        <div class=" flex gap-2 -mt-1">
-
-            @if(job?.new){
-                <div
-                class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
-              >
-                <p>NEW!</p>
-              </div>
-            }
-         
-            @if(job?.featured){
-                <div
-                class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
-              >
-                <p>FEATURED</p>
-              </div>
-            }
-
-          
+        <div class="flex gap-2 -mt-1">
+          @if(job?.new){
+          <div
+            class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
+          >
+            <p>NEW!</p>
+          </div>
+          } @if(job?.featured){
+          <div
+            class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
+          >
+            <p>FEATURED</p>
+          </div>
+          }
         </div>
       </div>
       <p
         class="text-darkest-cyan mt-3 lg:mt-1 font-bold text-xl cursor-pointer hover:text-text-cyan"
       >
-       {{job?.level}}
+        {{ job?.position }}
       </p>
-      <ul class="flex mt-1.5 lg:mt-0 text-dark-cyan gap-8 text-lg font-[500] mb-5">
-        <li class="list-none">{{job?.postedAt}}</li>
+      <ul
+        class="flex mt-1.5 lg:mt-0 text-dark-cyan gap-8 text-lg font-[500] mb-5"
+      >
+        <li class="list-none">{{ job?.postedAt }}</li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-          {{job?.contract}}
+          {{ job?.contract }}
         </li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-        {{job?.location}}
+          {{ job?.location }}
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
 
   <div class="line lg:hidden bg-dark-cyan opacity-50 h-[2px]"></div>
 
-  <ul class="tags pt-5 flex flex-wrap gap-4 ml-auto lg:mt-auto lg:mb-[48px] ">
+  <ul class="tags pt-5 flex flex-wrap gap-4 ml-auto lg:mt-auto lg:mb-[48px]">
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
     >
