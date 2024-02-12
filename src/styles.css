@@ -8,3 +8,8 @@
 *{
     font-family: "League Spartan", sans-serif;
 }
+body{
+        background-color: hsl(180, 52%, 96%) ;
+        height: full;
+        width: 100%;
+}
