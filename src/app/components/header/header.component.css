@@ -1,0 +1,9 @@
+.banner{
+    background-image: url(../../../assets/images/bg-header-desktop.svg);
+}
+
+@media (max-width: 450px){
+    .banner{
+        background-image: url(../../../assets/images/bg-header-mobile.svg);
+    }
+}
