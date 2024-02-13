@@ -10,5 +10,6 @@ export interface Job {
     "postedAt": string,
     "contract": string,
     "location": string,
-    "languages"?:string[],
+    "languages":string[],
+    "tools": string[]
 }

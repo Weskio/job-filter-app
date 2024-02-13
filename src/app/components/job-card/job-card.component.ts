@@ -13,7 +13,6 @@ import { JobSearchService } from '../../services/job-search.service';
 export class JobCardComponent {
 
   @Input() job!:Job
-  isFilterBarShown = true
 
   getImageUrl(imageName?: string){
   return `../../../assets/${imageName}`

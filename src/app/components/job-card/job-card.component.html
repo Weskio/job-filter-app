@@ -73,14 +73,22 @@
       {{ job.level }}
     </li>
 
-    <div class="languages"  *ngFor="let language of job?.languages">
+    <div class="languages" *ngFor="let language of job.languages">
       <li
-      class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
-      (click)="filterBarToggle(language)"
-    >
+        class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+        (click)="filterBarToggle(language)"
+      >
         {{ language }}
-    </li>
+      </li>
     </div>
-   
+
+    <div class="tools" *ngFor="let tool of job.tools">
+      <li
+        class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+        (click)="filterBarToggle(tool)"
+      >
+        {{ tool }}
+      </li>
+    </div>
   </ul>
 </main>

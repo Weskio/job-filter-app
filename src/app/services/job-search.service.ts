@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class JobSearchService {
 
-  public myTags :string[] =[]
+  public myTags :any =[]
 
   clearTags(){
     this.myTags = []
