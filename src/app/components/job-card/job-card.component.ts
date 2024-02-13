@@ -8,27 +8,36 @@ import { JobSearchService } from '../../services/job-search.service';
   standalone: true,
   imports: [NgClass, NgFor],
   templateUrl: './job-card.component.html',
-  styleUrl: './job-card.component.css'
+  styleUrl: './job-card.component.css',
 })
 export class JobCardComponent {
+  @Input() job!: Job;
 
-  @Input() job!:Job
+  constructor(public jobSearchService: JobSearchService) {}
 
-  getImageUrl(imageName?: string){
-  return `../../../assets/${imageName}`
+  getImageUrl(imageName?: string) {
+    return `../../../assets/${imageName}`;
   }
 
-  constructor(private job_search: JobSearchService){}
-
-  filterBarToggle(tag: string){
-   const index = this.job_search.myTags.indexOf(tag)
-
-   if(index===-1){
-    this.job_search.myTags.push(tag)
-   }
-   else{
-    this.job_search.myTags.splice(index,1)
-   }
+  jobMatchesTags(job: Job): boolean {
+    const selectedTags = this.jobSearchService.myTags;
+    if (selectedTags.length === 0) {
+      return true; 
+    }
+    return (
+      selectedTags.includes(job.role) ||
+      selectedTags.includes(job.level) ||
+      job.languages.some((language) => selectedTags.includes(language)) ||
+      job.tools.some((tool) => selectedTags.includes(tool))
+    );
   }
 
+  filterBarToggle(tag: string) {
+    const index = this.jobSearchService.myTags.indexOf(tag);
+    if (index === -1) {
+      this.jobSearchService.myTags.push(tag);
+    } else {
+      this.jobSearchService.myTags.splice(index, 1);
+    }
+  }
 }

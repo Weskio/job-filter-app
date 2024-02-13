@@ -4,6 +4,7 @@ import { JobDataService } from '../../services/job-data.service';
 import { Job } from '../../interface/interface';
 import { JobSearchService } from '../../services/job-search.service';
 import { NgFor } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-all-jobs',
@@ -15,30 +16,47 @@ import { NgFor } from '@angular/common';
 export class AllJobsComponent {
   constructor(
     private jobDataService: JobDataService,
-    private jobSearchService: JobSearchService
+    public selectedTags: JobSearchService
   ) {}
 
-  allJobs: Job[] = [];
+  allJobs: Job[] = this.jobDataService.getJobs();
   jobs: Job[] = [];
-  selectedTags: string[] = [];
   filteredJobs!: Job[];
+  private subscription!: Subscription;
 
-  ngOnInit() {
-    this.allJobs = this.jobDataService.getJobs();
-    this.selectedTags = this.jobSearchService.myTags;
-    this.getFilteredJobs();
-    //   console.log(this.jobSearchService.myTags)
-  }
+  // ngOnInit() {
+  //   this.subscription = this.selectedTags.myTags$.subscribe((tags) => {
+  //     if (tags.length === 0) {
+  //       this.jobs = this.allJobs;
+  //     } else {
+  //       this.filteredJobs = this.allJobs.filter((job) =>
+  //         this.jobMatchesTags(job, tags)
+  //       );
+  //       console.log(this.selectedTags.myTags);
+  //       this.jobs = this.filteredJobs;
+  //     }
+  //   });
+  // }
 
-  getFilteredJobs() {
-    if (this.selectedTags.length === 0) {
+  fetchJobsBasedOnTags() {
+    const tags = this.selectedTags.myTags;
+    if (tags.length === 0) {
       this.jobs = this.allJobs;
     } else {
       this.filteredJobs = this.allJobs.filter((job) =>
-        this.jobMatchesTags(job, this.selectedTags)
+        this.jobMatchesTags(job, tags)
       );
-      console.log(this.jobs);
+      this.jobs = this.filteredJobs;
     }
+  }
+
+  ngOnInit() {
+    this.subscription = this.selectedTags.myTags$.subscribe((tags) => {
+      this.fetchJobsBasedOnTags();
+    });
+
+    // Fetch jobs initially
+    this.fetchJobsBasedOnTags();
   }
 
   jobMatchesTags(job: Job, selectedTags: string[]): boolean {
