@@ -61,6 +61,7 @@
   <ul class="tags pt-5 flex flex-wrap gap-4 ml-auto lg:mt-auto lg:mb-[48px]">
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+      (click)="filterBarToggle()"
     >
       {{ job?.role }}
     </li>

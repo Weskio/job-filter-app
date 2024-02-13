@@ -12,9 +12,15 @@ import { NgClass, NgFor } from '@angular/common';
 export class JobCardComponent {
 
   @Input() job?:Job
+  isFilterBarShown = true
 
   getImageUrl(imageName?: string){
   return `../../../assets/${imageName}`
+  }
+
+  filterBarToggle(){
+    this.isFilterBarShown = !this.isFilterBarShown
+
   }
 
 }
