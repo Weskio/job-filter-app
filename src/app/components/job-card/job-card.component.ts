@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Job } from '../../interface/interface';
 import { NgClass, NgFor } from '@angular/common';
+import { JobSearchService } from '../../services/job-search.service';
 
 @Component({
   selector: 'app-job-card',
@@ -11,16 +12,24 @@ import { NgClass, NgFor } from '@angular/common';
 })
 export class JobCardComponent {
 
-  @Input() job?:Job
+  @Input() job!:Job
   isFilterBarShown = true
 
   getImageUrl(imageName?: string){
   return `../../../assets/${imageName}`
   }
 
-  filterBarToggle(){
-    this.isFilterBarShown = !this.isFilterBarShown
+  constructor(private job_search: JobSearchService){}
 
+  filterBarToggle(tag: string){
+   const index = this.job_search.myTags.indexOf(tag)
+
+   if(index===-1){
+    this.job_search.myTags.push(tag)
+   }
+   else{
+    this.job_search.myTags.splice(index,1)
+   }
   }
 
 }

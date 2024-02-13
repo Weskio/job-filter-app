@@ -1,28 +1,28 @@
 <main
   [ngClass]="{
     'bg-white mt-12 mx-6 xl:mx-36 lg:mx-16 lg:mt-8  lg:flex relative pb-8 pt-12 lg:pt-8 lg:pb-2 px-4 lg:px-10 rounded-md shadow-xl': true,
-    'border-l-[6px] border-l-text-cyan': job?.featured
+    'border-l-[6px] border-l-text-cyan': job.featured
   }"
 >
   <div class="details flex">
     <img
-      [src]="getImageUrl(job?.logo)"
+      [src]="getImageUrl(job.logo)"
       alt=""
       class="absolute lg:static h-16 lg:h-[85px] lg:mr-6 -top-8"
     />
 
     <div class="main-details">
       <div class="title-feat flex flex-wrap gap-3">
-        <p class="font-bold text-text-cyan mr-8 lg:mr-0">{{ job?.company }}</p>
+        <p class="font-bold text-text-cyan mr-8 lg:mr-0">{{ job.company }}</p>
 
         <div class="flex gap-2 -mt-1">
-          @if(job?.new){
+          @if(job.new){
           <div
             class="new text-white font-bold text-center flex items-center bg-text-cyan py-0 px-3 rounded-full"
           >
             <p>NEW!</p>
           </div>
-          } @if(job?.featured){
+          } @if(job.featured){
           <div
             class="new text-white font-bold text-center flex items-center bg-darkest-cyan p-1 px-3 rounded-full"
           >
@@ -34,23 +34,23 @@
       <p
         class="text-darkest-cyan mt-3 lg:mt-1 font-bold text-xl cursor-pointer hover:text-text-cyan"
       >
-        {{ job?.position }}
+        {{ job.position }}
       </p>
       <ul
         class="flex mt-1.5 lg:mt-0 text-dark-cyan gap-8 text-lg font-[500] mb-5"
       >
-        <li class="list-none">{{ job?.postedAt }}</li>
+        <li class="list-none">{{ job.postedAt }}</li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-          {{ job?.contract }}
+          {{ job.contract }}
         </li>
         <li class="relative">
           <div
             class="disc h-[5px] bg-dark-cyan opacity-50 w-[5px] rounded-full absolute -left-4 top-[11px]"
           ></div>
-          {{ job?.location }}
+          {{ job.location }}
         </li>
       </ul>
     </div>
@@ -61,22 +61,26 @@
   <ul class="tags pt-5 flex flex-wrap gap-4 ml-auto lg:mt-auto lg:mb-[48px]">
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
-      (click)="filterBarToggle()"
+      (click)="filterBarToggle(job.role)"
     >
-      {{ job?.role }}
+      {{ job.role }}
     </li>
 
     <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
+      (click)="filterBarToggle(job.level)"
     >
-      {{ job?.level }}
+      {{ job.level }}
     </li>
 
-    <li
+    <div class="languages"  *ngFor="let language of job?.languages">
+      <li
       class="text-text-cyan font-bold text-xl px-3 p-1 rounded-md bg-filter-cyan hover:bg-text-cyan hover:text-white cursor-pointer"
-      *ngFor="let language of job?.languages"
+      (click)="filterBarToggle(language)"
     >
-      {{ language }}
+        {{ language }}
     </li>
+    </div>
+   
   </ul>
 </main>
