@@ -44,6 +44,8 @@
 
 <br>
 
+![jobfilterapp](https://github.com/Weskio/job-filter-app/assets/120603467/075574f5-707a-4514-8e84-7edf98c35861)
+
 ## :dart: About ##
 
 Describe your project
