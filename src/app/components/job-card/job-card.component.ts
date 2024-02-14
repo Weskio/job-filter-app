@@ -22,14 +22,16 @@ export class JobCardComponent {
   jobMatchesTags(job: Job): boolean {
     const selectedTags = this.jobSearchService.myTags;
     if (selectedTags.length === 0) {
-      return true; 
+      return true;
+    } else {
+      return selectedTags.every(
+        (tag) =>
+          job.role === tag ||
+          job.level === tag ||
+          job.languages.includes(tag) ||
+          job.tools.includes(tag)
+      );
     }
-    return (
-      selectedTags.includes(job.role) ||
-      selectedTags.includes(job.level) ||
-      job.languages.some((language) => selectedTags.includes(language)) ||
-      job.tools.some((tool) => selectedTags.includes(tool))
-    );
   }
 
   filterBarToggle(tag: string) {
